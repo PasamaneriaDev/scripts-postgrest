@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/Circulares/Control_Produccion/ConsultaControlProduccion.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/DefectosCalidad/ConsultaDefectos.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Paros_Mantenimiento/CerrarParo.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Paros_Mantenimiento/ConsultaParosAbiertso.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Paros_Mantenimiento/RegistraParo.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Paros_Mantenimiento/Tabla.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/PesadoProduccion/ActualizaPesoRollo.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/PesadoProduccion/ConsultaPesados.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/PesadoProduccion/InsertDefectos.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/PesadoProduccion/Tabla.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/PesadoProduccion/Vistas.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Produccion/BuscaOperario.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Produccion/BuscarOrdenRollo.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Produccion/RegistraRolloProduccion.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Reubicacion/ConsultaOrdenesPendientes.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Reubicacion/ConsultaRollosPendientes.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Reubicacion/GrabarReubicacion.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Scripts.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Tablas.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Tarjetas/ReimprimirTarjetasCirculares.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Circulares/Tarjetas/TarjetasCirculares.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/UnidadesEquivalentesTxt/Consulta.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/UnidadesEquivalentesTxt/Scripts.sql" dialect="PostgreSQL" />
+  </component>
+</project>

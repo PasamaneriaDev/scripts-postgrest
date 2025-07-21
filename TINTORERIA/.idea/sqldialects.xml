@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/PesadoProduccion/EliminaPeso.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/PesadoProduccion/MargenToleracia/Scripts.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/PesadoProduccion/MargenToleracia/Validacion.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/TrazabilidadMalla/Scripts.sql" dialect="PostgreSQL" />
+  </component>
+</project>

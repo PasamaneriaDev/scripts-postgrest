@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/ComparativoAnualMayorista/Consulta.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ComparativoMensualMayorista/Consulta.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ReporteVentas.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/Scripts.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/TestReporteVentas.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_almacen_det.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_almacen_res.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_may_age_cli_det.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_may_age_cli_res.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_may_age_det.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_may_age_res.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_may_cli_det.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_may_cli_res.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_todo_det.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_todo_res.sql" dialect="PostgreSQL" />
+  </component>
+</project>

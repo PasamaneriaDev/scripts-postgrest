@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/Mercantil/ConsultaActualizaItemsSemanal.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Mercantil/ProcesarVentasDiarias.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Mercantil/ProcesarVentasSemanales.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Mercantil/Scripts.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/SubirCatalogoTxt/Scripts.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/SubirCatalogoTxt/SubirTxt.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/TomaProformaConsignacion/GeneraProforma.sql" dialect="PostgreSQL" />
+  </component>
+</project>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/Reportes/Ventas_Costo_Mayor_Precio.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/AjusteTransferenciaPeriodo/ajuste_inventario_recepción_transferencias_otro_periodo.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/AjustesProductoProceso/ajusteProductoProceso.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/ActualizaRevisaToma/Tablas.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Cierre.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/CorteCierreMes.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/GeneraPapeletas.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/GeneraSecuencia.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/NumeroMaximoPapeleta.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Tabla.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Toma/BuscaValidaItem.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Toma/CargarToma.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Toma/GrabarToma.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Toma/Scripts.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Toma/TablaHelper/CrearTablaHelper.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Toma/TablaHelper/EliminaPublicToma.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Toma/TablaHelper/EliminarTodaPublic.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Toma/TablaHelper/InsertaPublicToma.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Toma/TablaHelper/Scripts.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Toma/TablaHelper/Tabla.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Toma/TablaHelper/TablaPublicToma.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/Transacciones/ProductoEnProceso/Toma/ValidarOrdenProduccion.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/scripts.sql" dialect="PostgreSQL" />
+  </component>
+</project>
