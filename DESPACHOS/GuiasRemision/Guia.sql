@@ -1,30 +1,19 @@
-CREATE OR REPLACE FUNCTION cuentas_cobrar.guias_remision_transferencia(p_datajs text,
-                                                                       p_usuario text)
-    RETURNS void
+CREATE OR REPLACE FUNCTION cuentas_cobrar.guias_remision_nueva(p_datajs text,
+                                                               p_usuario text,
+                                                               o_numero_guia OUT text)
+    RETURNS text
     LANGUAGE plpgsql
 AS
 $function$
 DECLARE
     _interface_activo BOOLEAN = TRUE;
     v_punto_emision   varchar;
-    v_numero_guia     varchar;
-    v_factura         varchar = '';
 BEGIN
 
     SELECT p_interface_activo
     INTO _interface_activo
     FROM sistema.interface_modulo_activo_fnc('trabajo_proceso');
 
-    IF p_datajs::json ->> 'tipo_documento' = 'D' THEN
-        SELECT factura
-        INTO v_factura
-        FROM cuentas_cobrar.facturas_cabecera
-        WHERE referencia = (p_datajs::json ->> 'referencia');
-
-        IF NOT found THEN
-            RAISE EXCEPTION 'No existe factura para la referencia %', (p_datajs::json ->> 'referencia');
-        END IF;
-    END IF;
 
     SELECT direccion3
     INTO v_punto_emision
@@ -33,7 +22,7 @@ BEGIN
       AND terminal = '01';
 
     SELECT p_numero_guia
-    INTO v_numero_guia
+    INTO o_numero_guia
     FROM sistema.bodega_numero_guia_obtener_fnc((p_datajs::json ->> 'bodega'), '01');
 
     WITH t AS (
@@ -42,12 +31,12 @@ BEGIN
              bodega, factura, codigo_transportista, direccion_establecimiento,
              fecha_inicio, fecha_fin, direccion_destino, impreso, numero_ganchos)
             SELECT x.tipo_documento,
-                   v_numero_guia,
+                   o_numero_guia,
                    x.referencia,
                    x.cliente,
                    CURRENT_DATE,
                    x.bodega,
-                   v_factura,
+                   x.factura,
                    x.codigo_transportista,
                    v_punto_emision,
                    x.fecha_inicio,
@@ -58,7 +47,7 @@ BEGIN
             FROM JSON_TO_RECORD(p_datajs::json) x (tipo_documento text, referencia text, cliente text,
                                                    bodega text, codigo_transportista text,
                                                    fecha_inicio date, fecha_fin date,
-                                                   direccion_destino text)
+                                                   direccion_destino text, factura text)
             RETURNING a.tipo_documento,
                 a.numero_guia,
                 a.referencia,

@@ -10,9 +10,10 @@ CREATE OR REPLACE FUNCTION puntos_venta.reporte_ventas_ps_my_descuentos(periodo_
                 item                  character varying,
                 descripcion           character varying,
                 codigo_rotacion       character varying,
+                costo                 numeric,
                 periodo               character varying,
-                PORCENTAJE_DSCTO      numeric,
-                VALOR_DSCTO_ADICIONAL numeric,
+                porcentaje_dscto      numeric,
+                valor_dscto_adicional numeric,
                 precio                numeric,
                 cantidad              numeric,
                 total_precio          numeric
@@ -35,7 +36,9 @@ BEGIN
                             fd.valor_descuento_adicional AS descuento_adic,
                             fd.precio,
                             fd.cantidad,
-                            fd.total_precio
+                            fd.total_precio,
+                            fd.costo,
+                            i.costo_promedio
                      FROM puntos_venta.facturas_detalle fd
                               LEFT JOIN control_inventarios.items i ON fd.item = i.item
                      WHERE LEFT(fd.item, 1) IN ('1', '5')
@@ -55,7 +58,9 @@ BEGIN
                             fd.descuento_etatex AS descuento_adic,
                             fd.precio,
                             fd.cantidad,
-                            fd.total_precio
+                            fd.total_precio,
+                            fd.costo,
+                            i.costo_promedio
                      FROM cuentas_cobrar.facturas_detalle fd
                               LEFT JOIN control_inventarios.items i ON fd.item = i.item
                      WHERE LEFT(fd.item, 1) IN ('1', '5')
@@ -71,6 +76,7 @@ BEGIN
                cte.item,
                REPLACE(REPLACE(cte.descripcion, ',', ''), ';', '')::varchar AS descripcion,
                cte.codigo_rotacion,
+               cte.costo                                                    AS costo,
                cte.periodo,
                cte.descuento,
                cte.descuento_adic,

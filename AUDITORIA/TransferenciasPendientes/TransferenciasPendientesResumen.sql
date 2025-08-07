@@ -1,3 +1,5 @@
+-- DROP FUNCTION control_inventarios.transferencias_pendientes_resumen(varchar, varchar);
+
 CREATE OR REPLACE FUNCTION control_inventarios.transferencias_pendientes_resumen(p_bodega character varying, p_ubicacion character varying)
     RETURNS TABLE
             (

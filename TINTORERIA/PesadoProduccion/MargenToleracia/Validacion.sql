@@ -1,7 +1,8 @@
+-- DROP FUNCTION trabajo_proceso.tintoreria_peso_balanza_margen_tolerancia(in varchar, in numeric, out text);
 
-CREATE OR REPLACE FUNCTION trabajo_proceso.tintoreria_peso_balanza_margen_tolerancia(p_codigo_orden varchar,
+CREATE OR REPLACE FUNCTION trabajo_proceso.tintoreria_peso_balanza_margen_tolerancia(p_codigo_orden character varying,
                                                                                      p_peso_rollo_agrega numeric,
-                                                                                     o_es_valido OUT text)
+                                                                                     OUT o_es_valido text)
     RETURNS text
     LANGUAGE plpgsql
 AS
@@ -14,7 +15,7 @@ DECLARE
 BEGIN
 
     -- Mallas Reprocesadas no deben ser validadas
-    IF left(p_codigo_orden, 4) = 'T7-R' THEN
+    IF LEFT(p_codigo_orden, 4) = 'T7-R' THEN
         RETURN;
     END IF;
 
@@ -23,7 +24,7 @@ BEGIN
     INTO v_item_malla_cruda
     FROM trabajo_proceso.ordenes o
              JOIN lista_materiales.estructuras e ON e.item = o.item
-        AND e.componente LIKE LEFT(o.item, 6) || '%'
+        AND e.componente LIKE LEFT(o.item, 4) || '%'
     WHERE o.codigo_orden = p_codigo_orden;
 
     IF NOT found THEN

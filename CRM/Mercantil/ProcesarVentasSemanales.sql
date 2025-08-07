@@ -249,7 +249,8 @@ BEGIN
                               RPAD(c.bodega, 3, ' '), c.tipo_pedido, c.creacion_usuario,
                               TO_CHAR(c.creacion_fecha, 'YYYY-MM-DD'),
                               c.creacion_hora,
-                              RIGHT('     ' || c.numero_pedido, 10), c.secuencia, c.porcentaje_descuento, i.codigo_rotacion)
+                              RIGHT('     ' || c.numero_pedido, 10), c.secuencia, c.porcentaje_descuento,
+                              i.codigo_rotacion)
                 FROM cte c
                          JOIN control_inventarios.items i ON c.item = i.item
                 WHERE _interface_activo;

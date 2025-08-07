@@ -1,9 +1,36 @@
 -- DROP FUNCTION puntos_venta.reporte_ventas_ps_my_unidades(varchar, varchar);
 
 CREATE OR REPLACE FUNCTION puntos_venta.reporte_ventas_ps_my_unidades(periodo_inicial character varying, periodo_final character varying)
- RETURNS TABLE(periodo character varying, item character varying, descripcion character varying, linea character varying, familia character varying, codigo_rotacion character varying, unidad_medida character varying, costo_promedio numeric, precio_mayoreo numeric, precio_publico numeric, precio_cadena numeric, creacion_fecha date, primera_venta date, almvtauns numeric, almvtaues numeric, almvtados numeric, mayvtauns numeric, mayvtaues numeric, mayvtados numeric, total_ventas numeric, existencia_999 numeric, existencia_100 numeric)
- LANGUAGE plpgsql
-AS $function$
+    RETURNS TABLE
+            (
+                periodo               character varying,
+                item                  character varying,
+                descripcion           character varying,
+                linea                 character varying,
+                familia               character varying,
+                codigo_rotacion       character varying,
+                unidad_medida         character varying,
+                costo_promedio_actual numeric,
+                precio_mayoreo        numeric,
+                precio_publico        numeric,
+                precio_cadena         numeric,
+                creacion_fecha        date,
+                primera_venta         date,
+                almvtauns             numeric,
+                almvtaues             numeric,
+                almvtados             numeric,
+                almvtacos             numeric,
+                mayvtauns             numeric,
+                mayvtaues             numeric,
+                mayvtados             numeric,
+                mayvtacos             numeric,
+                total_ventas          numeric,
+                existencia_999        numeric,
+                existencia_100        numeric
+            )
+    LANGUAGE plpgsql
+AS
+$function$
 DECLARE
     v_uni_equivalente NUMERIC(10, 2);
 BEGIN
@@ -20,8 +47,10 @@ BEGIN
                             i.ruta,
                             SUM(r1.cantidad_ps)  AS cantidad_ps,
                             SUM(r1.total_ps)     AS total_ps,
+                            SUM(r1.costo_ps)     AS costo_ps,
                             SUM(r1.cantidad_may) AS cantidad_may,
                             SUM(r1.total_may)    AS total_may,
+                            SUM(r1.costo_may)    AS costo_may,
                             i.descripcion,
                             i.linea,
                             i.familia,
@@ -34,8 +63,10 @@ BEGIN
                                   fd.periodo,
                                   SUM(fd.cantidad)     AS cantidad_ps,
                                   SUM(fd.total_precio) AS total_ps,
+                                  SUM(fd.costo)        AS costo_ps,
                                   0                    AS cantidad_may,
-                                  0                    AS total_may
+                                  0                    AS total_may,
+                                  0                    AS costo_may
                            FROM puntos_venta.facturas_detalle fd
                            WHERE LEFT(fd.item, 1) IN ('1', '5')
                              --AND COALESCE(status, '') <> 'V'
@@ -46,8 +77,10 @@ BEGIN
                                   fd.periodo,
                                   0                    AS cantidad_ps,
                                   0                    AS total_ps,
+                                  0                    AS costo_ps,
                                   SUM(fd.cantidad)     AS cantidad_may,
-                                  SUM(fd.total_precio) AS total_may
+                                  SUM(fd.total_precio) AS total_may,
+                                  SUM(fd.costo)        AS costo_may
                            FROM cuentas_cobrar.facturas_detalle fd
                            WHERE LEFT(fd.item, 1) IN ('1', '5')
                              --AND COALESCE(status, '') <> 'V'
@@ -74,7 +107,7 @@ BEGIN
                              GROUP BY r.ruta)
         SELECT cte.periodo,
                cte.item,
-               REPLACE(REPLACE(cte.descripcion, ',', ''), ';', '')::varchar AS descripcion,
+               REPLACE(REPLACE(cte.descripcion, ',', ''), ';', '')::varchar              AS descripcion,
                cte.linea,
                cte.familia,
                cte.codigo_rotacion,
@@ -88,9 +121,11 @@ BEGIN
                cte.cantidad_ps                                                           AS AlmVtaUnS,
                COALESCE(ROUND((cte.cantidad_ps * rt.tiempo) / v_uni_equivalente, 2), 0)  AS AlmVtaUES,
                cte.total_ps                                                              AS AlmVtaDoS,
+               cte.costo_ps                                                              AS AlmVtaCoS,
                cte.cantidad_may                                                          AS MayVtaUnS,
                COALESCE(ROUND((cte.cantidad_may * rt.tiempo) / v_uni_equivalente, 2), 0) AS MayVtaUES,
                cte.total_may                                                             AS MayVtaDoS,
+               cte.costo_may                                                             AS MayVtaCoS,
                (cte.cantidad_ps + cte.cantidad_may)                                      AS TOTAL_VENTAS,
                COALESCE(b999.existencia, 0)                                              AS existencia_999,
                COALESCE(b100.existencia, 0)                                              AS existencia_100

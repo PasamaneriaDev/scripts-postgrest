@@ -1,5 +1,4 @@
 -- DROP FUNCTION trabajo_proceso.actualizar_estado_requerimiento();
--- DROP FUNCTION trabajo_proceso.actualizar_estado_requerimiento();
 
 CREATE OR REPLACE FUNCTION trabajo_proceso.actualizar_estado_requerimiento()
     RETURNS trigger
@@ -63,25 +62,13 @@ BEGIN
                 -- Se inserta en el detalle del email(Destinatarios del email)
                 INSERT INTO sistema.email_masivo_detalle(numero_email, emails, nombre_destinatario)
                 VALUES (p_numero_email, p_correos, 'Pasamanería S.A.');
-
-            ELSif old.activo = true and new.activo = false then
-                    INSERT INTO puntos_venta.requerimientos_estados (nro_requerimiento, estado, usuario, observacion)
-                    VALUES (NEW.nro_requerimiento, 'NO ENVIADO', 'CAJA', '');
+            ELSIF old.activo = TRUE AND new.activo = FALSE THEN
+                INSERT INTO puntos_venta.requerimientos_estados (nro_requerimiento, estado, usuario, observacion)
+                VALUES (NEW.nro_requerimiento, 'NO ENVIADO', 'CAJA', '');
             END IF;
         END IF;
     END IF;
     RETURN NEW;
-END;
+END ;
 $function$
 ;
-
-
-
-CREATE TRIGGER trg_actualizar_estado_requerimiento
-    AFTER INSERT OR UPDATE
-    ON trabajo_proceso.requerimiento_guia
-    FOR EACH ROW
-EXECUTE FUNCTION trabajo_proceso.actualizar_estado_requerimiento();
-
-
-DROP TRIGGER trg_actualizar_estado_requerimiento ON trabajo_proceso.requerimiento_guia;
