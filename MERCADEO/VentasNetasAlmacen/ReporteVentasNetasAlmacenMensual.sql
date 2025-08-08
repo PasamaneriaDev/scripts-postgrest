@@ -36,8 +36,7 @@ BEGIN
                                 JOIN control_inventarios.id_bodegas ib
                                      ON pa.bodega = ib.bodega AND COALESCE(pa.bodega_primera, '') <> ib.bodega
                                 LEFT JOIN activos_fijos.centros_costos cc ON cc.codigo = pa.centro_costo
-                       WHERE ib.es_punto_venta
-                         AND ib.fecha_fin_transacciones IS NULL) x1
+                       WHERE ib.es_punto_venta) x1
                       ON x1.bodega = fd.bodega OR x1.bodega_primera = fd.bodega
                  LEFT JOIN roles.personal p ON fd.vendedor = RIGHT(p.codigo, 4) AND LEFT(p.codigo, 1) <> 'F'
         WHERE ((fc.monto_total - fc.iva) > p_monto_minimo OR p_monto_minimo = 0)

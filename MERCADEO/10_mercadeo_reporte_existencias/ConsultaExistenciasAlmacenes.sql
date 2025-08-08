@@ -97,7 +97,6 @@ BEGIN
                                       JOIN control_inventarios.id_bodegas r0
                                            ON r0.bodega = b.bodega
                                                AND r0.es_punto_venta = TRUE
-                                               AND r0.fecha_fin_transacciones IS NULL
                                       LEFT JOIN control_inventarios.items r1
                                                 ON r1.item = b.item
                              WHERE r1.codigo_rotacion IS NOT NULL

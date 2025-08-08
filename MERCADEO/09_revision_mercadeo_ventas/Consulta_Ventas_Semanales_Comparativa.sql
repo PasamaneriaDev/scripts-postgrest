@@ -49,7 +49,6 @@ BEGIN
                              FROM GENERATE_SERIES('2024-11-25'::date, '2024-12-01'::date,
                                                   '1 day'::interval) AS day) AS dia
         WHERE ib.es_punto_venta
-          AND ib.fecha_fin_transacciones IS NULL
         ORDER BY ib.bodega, dia.dia;
     ELSE
         CREATE TEMP TABLE temp_bodegas_dias AS

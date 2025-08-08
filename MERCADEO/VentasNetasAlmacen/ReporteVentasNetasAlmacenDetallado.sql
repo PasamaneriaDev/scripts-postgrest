@@ -39,7 +39,6 @@ BEGIN
           AND fd.periodo = p_periodo
           AND (p_bodegas = '' OR ib.bodega IN (SELECT UNNEST(STRING_TO_ARRAY(p_bodegas, ','))))
           AND ib.es_punto_venta
-          AND ib.fecha_fin_transacciones IS NULL
         GROUP BY ib.bodega, ib.descripcion, fd.fecha, codigo_vendedor, nombre_vendedor
         ORDER BY ib.bodega, fd.fecha, nombre_vendedor;
 
