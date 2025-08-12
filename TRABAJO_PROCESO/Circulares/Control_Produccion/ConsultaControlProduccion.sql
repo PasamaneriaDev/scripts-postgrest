@@ -50,7 +50,7 @@ BEGIN
                              pr.fecha_inicio,
                              pr.fecha_fin,
                              pr.motivo,
-                             ROUND(EXTRACT(EPOCH FROM (pr.fecha_fin - pr.fecha_inicio)) / 60, 2) AS tiempo_transcurrido -- en Horas
+                             ROUND((EXTRACT(EPOCH FROM (pr.fecha_fin - pr.fecha_inicio)) / 3600)::numeric, 2) AS tiempo_transcurrido -- en Horas
                       FROM trabajo_proceso.ordenes_rollos_detalle rd
                                JOIN trabajo_proceso.ordenes o ON o.codigo_orden = rd.codigo_orden
                                JOIN sistema.usuarios u ON rd.operario_registro_produccion = u.codigo
@@ -70,7 +70,7 @@ BEGIN
                              rd.fecha_inicio,
                              rd.fecha_fin,
                              rd.motivo,
-                             ROUND(EXTRACT(EPOCH FROM (rd.fecha_fin - rd.fecha_inicio)) / 60, 2) AS tiempo_transcurrido
+                             ROUND((EXTRACT(EPOCH FROM (rd.fecha_fin - rd.fecha_inicio)) / 3600)::numeric, 2) AS tiempo_transcurrido
                       FROM trabajo_proceso.ordenes_rollos_paros_mantenimiento rd
                                JOIN sistema.usuarios u ON rd.creacion_usuario = u.codigo
                       WHERE rd.tipo = 'M'
