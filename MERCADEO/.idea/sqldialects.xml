@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/09_revision_mercadeo_ventas/Consulta_Ventas_Semanales_Comparativa.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/10_mercadeo_reporte_existencias/ConsultaExistenciasAlmacenes.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/14_reporte_ventas_unidades_descuentos/ReporteVentasDescuentos.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/14_reporte_ventas_unidades_descuentos/ReporteVentasUnidades.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/ComparativoAnualMayorista/Consulta.sql" dialect="PostgreSQL" />
@@ -18,6 +20,8 @@
     <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_may_cli_res.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_todo_det.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/ReporteGeneralVentas/ventas_todo_res.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/VentasKilosUnidadesDolares/ReporteVentasKUD_ByItem.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/VentasKilosUnidadesDolares/ReporteVentasKiloUnidadDolares.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/VentasNetasAlmacen/ReporteCondensadasBase.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/VentasNetasAlmacen/ReporteVentasNetasAlmacenCondensado.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/VentasNetasAlmacen/ReporteVentasNetasAlmacenCondensadoVend.sql" dialect="PostgreSQL" />
